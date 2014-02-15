@@ -43,6 +43,9 @@ popMAF <- function(dat) {
 # Read the data
 pop <- read.csv("sample_input.csv", stringsAsFactors=FALSE, row.names=1)
 
+# Turn negative values into missing data
+pop[is.na(pop)] <- NA
+
 # Take the loci names
 lnames <- unique(gsub("(.*)\\.\\d{1}$", "\\1", names(pop)))
 
@@ -82,7 +85,6 @@ while(L <= nloci) {
 	
 	# data for the current locus without missing data
 	complete <- currpop
-	complete[complete < 0] <- NA
 	complete <- complete[complete.cases(complete), ]
 	
 	# Number of individuals analyzed in the current locus 
