@@ -30,9 +30,9 @@ popMAF <- function(dat) {
 		allcount <- table(datx[ ,i:(i + 1)])
 		ac <- allcount[as.numeric(names(allcount)) > 0]
 		# Threshold = 0.01%:
-		#bMAF <- as.numeric(names(ac[ac < sum(ac) * (0.01/100)]))
+		bMAF <- as.numeric(names(ac[ac < sum(ac) * (0.01/100)]))
 		# Threshold = count of 5:
-		bMAF <- as.numeric(names(ac[ac <= 5]))
+		#bMAF <- as.numeric(names(ac[ac <= 5]))
 		datx[datx[ ,(i)] %in% bMAF, i] <- -5
 		datx[datx[ ,(i + 1)] %in% bMAF, i + 1] <- -5
 	}
@@ -41,7 +41,7 @@ popMAF <- function(dat) {
 }
 
 # Read the data
-pop <- read.csv("path_to_popdata.csv", stringsAsFactors=FALSE, row.names=1)
+pop <- read.csv("sample_input.csv", stringsAsFactors=FALSE, row.names=1)
 
 # Turning all negative values (codes for missing data) into NA
 pop[pop<0] <- NA
@@ -169,7 +169,7 @@ pars <- data.frame(alleles=parsnames, pars)
 tab1 <- rbind(alfreqdf, pars)
 
 # Saving the table to the working directory
-write.table(tab1 "table1_1.csv", sep=",", quote=FALSE, row.names=FALSE)
+write.table(tab1, "table1_1.csv", sep=",", quote=FALSE, row.names=FALSE)
 
 # Formating the data frame to DNAtools format
 pop <- data.frame(id=rownames(pop), pop)
@@ -199,7 +199,7 @@ for(i in seq(2,ncol(pop),2)) {
 	missing <- c(missing, m)
 }
 
-names(missing) <- names(pop)[seq(1,ncol(pop),2)]
+names(missing) <- names(pop)[seq(2,ncol(pop),2)]
 # Saving the plot as .png with 1200 dpi of resolution to the working directory
 png("figure1.png", width = 3.25, height = 3.25, units = "in", res = 1200, pointsize=6, family="Arial")
 par(mar = c(7,4,2,1))
