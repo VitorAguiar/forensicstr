@@ -153,7 +153,7 @@ while(L <= nloci) {
 names(nind) <- names(vech) <- names(vech.exp) <- names(vecpM) <- names(vecpD) <- names(vecpE) <- names(vecTPI) <- names(vecPIC) <- names(vecf) <- lnames
 
 # Creating the allele frequency table
-# Table 1 in the paper
+# Table 1
 for (i in seq_along(dfall)) names(dfall[[i]]) <- c('alleles', paste0('freq.', i))
 alfreqdf <- Reduce(function(x,y) merge(x,y, by = 'alleles', all = TRUE), dfall)
 names(alfreqdf) <- c("alleles", lnames)
@@ -184,14 +184,12 @@ pop[is.na(pop)] <- 999
 res <- dbCompare(pop, hit=12, threads=0, trace=FALSE)
 
 # Save the results
-# This is Table 2 in the paper
 mat <- as.data.frame(res$m)
 mat <- data.frame("partial/match"=rownames(mat), mat)
 colnames(mat) <- c("match/partial", 0:nloci)
 write.table(mat, "table2.csv", sep=",", row.names=FALSE)
 
 # missing data plot
-# Figure 1 in the paper
 missing <- numeric()
 for(i in seq(2,ncol(pop),2)) {
 	
