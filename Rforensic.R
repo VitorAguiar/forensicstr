@@ -199,7 +199,7 @@ for(i in seq(2,ncol(pop),2)) {
 
 names(missing) <- names(pop)[seq(2,ncol(pop),2)]
 # Saving the plot as .png with 1200 dpi of resolution to the working directory
-png("figure1.png", width = 3.25, height = 3.25, units = "in", res = 1200, pointsize=6, family="Arial")
+png("figure1.png", width=3.25, height=3.25, units="in", res=1200, pointsize=6, family="Arial")
 par(mar = c(7,4,2,1))
-barplot(missing*100, space = .1, ylim = c(0,.035)*100, axisnames = TRUE, col = "grey20", cex.names = 1.2, las = 2, names.arg = names(missing), border = NA, axis.lty = "solid", ylab = "missing data percentage (%)")
+barplot(missing*100, space=.1, ylim=c(0,100), axisnames=TRUE, col="grey20", cex.names=1.2, las=2, names.arg=names(missing), border=NA, axis.lty="solid", ylab="missing data percentage (%)")
 dev.off()
