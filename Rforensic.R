@@ -43,9 +43,6 @@ popMAF <- function(dat) {
 # Read the data
 pop <- read.csv("sample_input.csv", stringsAsFactors=FALSE, row.names=1)
 
-# Turning all negative values (codes for missing data) into NA
-pop[pop<0] <- NA
-
 # Take the loci names
 lnames <- unique(gsub("(.*)\\.\\d{1}$", "\\1", names(pop)))
 
@@ -189,6 +186,7 @@ mat <- data.frame("partial/match"=rownames(mat), mat)
 colnames(mat) <- c("match/partial", 0:nloci)
 write.table(mat, "table2.csv", sep=",", row.names=FALSE)
 
+pop[pop==999] <- NA
 # missing data plot
 missing <- numeric()
 for(i in seq(2,ncol(pop),2)) {
