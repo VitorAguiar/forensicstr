@@ -187,7 +187,7 @@ res <- dbCompare(pop, hit=12, threads=0, trace=FALSE)
 # This is Table 2 in the paper
 mat <- as.data.frame(res$m)
 mat <- data.frame("partial/match"=rownames(mat), mat)
-colnames(mat) <- c("match/partial", 0:20)
+colnames(mat) <- c("match/partial", 0:nloci)
 write.table(mat, "table2.csv", sep=",", row.names=FALSE)
 
 # missing data plot
