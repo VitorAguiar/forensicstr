@@ -161,7 +161,7 @@ alfreqdf[is.na(alfreqdf)] <- ""
 # Saving the table to the working directory
 write.table(alfreqdf, "table1_1.csv", sep=",", quote=FALSE, row.names=FALSE)
 
-# Creating a data frame with the statistic of forensic relevance
+# Creating a data frame with statistics of forensic relevance
 # This is the bottom part of the Table 1
 pars <- rbind(nind, round(vech,6), round(vech.exp,6), round(vecf,6), round(vecpM, 6), round(vecpD, 6), round(vecpE,6), round(vecTPI,6), round(vecPIC, 6))
 rownames(pars) <- NULL
