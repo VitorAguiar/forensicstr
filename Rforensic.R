@@ -162,13 +162,12 @@ alfreqdf[is.na(alfreqdf)] <- ""
 write.table(alfreqdf, "table1_1.csv", sep=",", quote=FALSE, row.names=FALSE)
 
 # Creating a data frame with statistics of forensic relevance
-# This is the bottom part of the Table 1
 pars <- rbind(nind, round(vech,6), round(vech.exp,6), round(vecf,6), round(vecpM, 6), round(vecpD, 6), round(vecpE,6), round(vecTPI,6), round(vecPIC, 6))
 rownames(pars) <- NULL
 parsnames <- c("N", "het.obs", "het.exp", "f", "p.M", "p.dis", "p.exc", "TPI", "PIC")
 pars <- data.frame(parameters=parsnames, pars)
 
-# Saving this data frame to the working director
+# Saving this data frame to the working directory
 write.table(pars, "table1_2.csv", sep =",", quote=FALSE, row.names=FALSE)
 
 # Formating the data frame to DNAtools format
@@ -184,7 +183,6 @@ pop[is.na(pop)] <- 999
 res <- dbCompare(pop, hit=12, threads=0, trace=FALSE)
 
 # Save the results
-# This is Table 2 in the paper
 mat <- as.data.frame(res$m)
 mat <- data.frame("partial/match"=rownames(mat), mat)
 colnames(mat) <- c("match/partial", 0:20)
