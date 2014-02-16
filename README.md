@@ -8,7 +8,7 @@ R script to analyze forensic STR datasets. It produces 2 tables and a histogram.
 	N: number of individuals
 	Observed Heterozygosity
 	Expected Heterozygosity
-	The moment estimator of the Inbreeding Coefficient
+	The moment estimate of the Inbreeding Coefficient
 	Matching Probability
 	Power of Exclusion
 	Power of Discrimination
