@@ -44,7 +44,7 @@ popMAF <- function(dat) {
 pop <- read.csv("sample_input.csv", stringsAsFactors=FALSE, row.names=1)
 
 # Turn negative values into missing data
-pop[is.na(pop)] <- NA
+pop[pop<0] <- NA
 
 # Take the loci names
 lnames <- unique(gsub("(.*)\\.\\d{1}$", "\\1", names(pop)))
