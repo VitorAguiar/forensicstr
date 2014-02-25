@@ -112,6 +112,6 @@ for(l in seq(1,ncol(pop)-1,2)) {
 	L <- L+1
 }
 
-#save the data
+#save the results
 cidf <- data.frame(lnames, f, ci.low, ci.upp)
 write.table(cidf, "cidf.csv", sep=",", row.names=FALSE)
