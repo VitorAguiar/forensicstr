@@ -1,8 +1,9 @@
 forensicstr
 ===========
 
-R script to analyze forensic STR datasets. 
-Forensicstr consumes a csv file with the individuals' genotypes and produces 2 tables and a histogram.
+R scripts to analyze forensic STR datasets. 
+
+Rforensic.R consumes a csv file with the individuals' genotypes and produces 2 tables and a histogram.
 
 Table 1 contains:
 
@@ -24,5 +25,5 @@ table of complete and partial adventitious matches made by the DNAtools package.
 Histogram:
 Percentages of missing data across loci.
 
-
+fconfint.R calculates confidence intervals for the inbreeding coefficient estimates.
  
