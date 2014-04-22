@@ -1,7 +1,8 @@
 forensicstr
 ===========
 
-R script to analyze forensic STR datasets. It produces 2 tables and a histogram.
+R script to analyze forensic STR datasets. 
+Forensicstr consumes a csv file with the individuals' genotypes and produces 2 tables and a histogram.
 
 Table 1 contains:
 Allele frequencies for each locus
