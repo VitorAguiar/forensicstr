@@ -5,16 +5,17 @@ R script to analyze forensic STR datasets.
 Forensicstr consumes a csv file with the individuals' genotypes and produces 2 tables and a histogram.
 
 Table 1 contains:
-Allele frequencies for each locus
-N: number of individuals
-Observed Heterozygosity
-Expected Heterozygosity
-The moment estimate of the Inbreeding Coefficient
-Matching Probability
-Power of Exclusion
-Power of Discrimination
-Typical Paternity Index
-Polymorphic Information Content
+
+Allele frequencies for each locus,
+Number of individuals,
+Observed Heterozygosity,
+Expected Heterozygosity,
+The moment estimate of the Inbreeding Coefficient,
+Matching Probability,
+Power of Exclusion,
+Power of Discrimination,
+Typical Paternity Index,
+Polymorphic Information Content.
 
 Table 2:
 
