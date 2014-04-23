@@ -23,15 +23,18 @@ ObsGen <- function(dat, Names) {
 ## which is a code for missing data that is turned into NA afterwards
 popMAF <- function(dat) {
 	datx <- as.matrix(dat)
-	
+
 	for (i in seq(1, ncol(datx), 2)) {
 		allcount <- table(datx[ ,i:(i + 1)])
 		ac <- allcount[as.numeric(names(allcount)) > 0]
-		bMAF <- as.numeric(names(ac[ac <= 5]))
+		# Threshold = 0.01%:
+		bMAF <- as.numeric(names(ac[ac < sum(ac) * (0.01/100)]))
+		# Threshold = count of 5:
+		#bMAF <- as.numeric(names(ac[ac <= 5]))
 		datx[datx[ ,(i)] %in% bMAF, i] <- -5
 		datx[datx[ ,(i + 1)] %in% bMAF, i + 1] <- -5
 	}
-	
+
 	return(datx)
 }
 
