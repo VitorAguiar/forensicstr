@@ -72,16 +72,15 @@ nind <- vech <- vech.exp <- vecpM <- vecpD <- vecpE <- vecTPI <- vecPIC <- vecf 
 #dfall: list of data frames with alleles frequencies at each locus
 dfall <- vector("list", nloci)
 
-# initialize a counter
-L <- 1
+
 # Loop to perform all analyses
-while(L <= nloci) {
+for(L in seq(2, ncol(pop), 2)) {
 	
 	# Matrix of Observed Genotypes at the current locus
 	obs <- as.matrix(Obs.list[[L]])
 	
 	# Genotypes at the current locus
-	currpop <- popMAFdf[ ,(L * 2 - 1):(L * 2)]
+	currpop <- popMAFdf[ ,c(L, L+1)]
 	
 	# data for the current locus without missing data
 	complete <- currpop
