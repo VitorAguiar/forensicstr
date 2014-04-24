@@ -81,7 +81,7 @@ while(L <= nloci) {
 	obs <- as.matrix(Obs.list[[L]])
 	
 	# Genotypes at the current locus
-	currpop <- popMAFdf[ ,(L*2):(L*2 + 1)]
+	currpop <- popMAFdf[ ,(L*2 - 1):(L*2)]
 	
 	# data for the current locus without missing data
 	complete <- currpop
@@ -143,6 +143,8 @@ while(L <= nloci) {
 	denom2 <- numer1
 	
 	vecf[L] <- ( sum(numer1) + sum(numer2)/(2*n) )/( sum(denom1) - sum(denom2)/(2*n) )
+	
+	L <- L+1
 }
 
 # Naming vectors and list with the loci names
