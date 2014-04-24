@@ -1,22 +1,22 @@
 forensicstr
 ===========
 
-R scripts to analyze forensic STR datasets. 
+### R scripts to analyze forensic STR datasets. 
 
-Rforensic.R consumes a csv file with the individuals' genotypes and produces 2 tables and a histogram.
+##### Rforensic.R consumes a csv file with the individuals' genotypes and produces 2 tables and a histogram.
 
 Table 1 contains:
 
-Allele frequencies for each locus,
-Number of individuals,
-Observed Heterozygosity,
-Expected Heterozygosity,
-The moment estimate of the Inbreeding Coefficient,
-Matching Probability,
-Power of Exclusion,
-Power of Discrimination,
-Typical Paternity Index,
-Polymorphic Information Content.
+* Allele frequencies for each locus
+* Number of individuals
+* Observed Heterozygosity
+* Expected Heterozygosity
+* The moment estimate of the Inbreeding Coefficient
+* Matching Probability
+* Power of Exclusion
+* Power of Discrimination
+* Typical Paternity Index
+* Polymorphic Information Content
 
 Table 2:
 
@@ -25,5 +25,5 @@ table of complete and partial adventitious matches made by the DNAtools package.
 Histogram:
 Percentages of missing data across loci.
 
-fconfint.R calculates confidence intervals for the inbreeding coefficient estimates.
+##### fconfint.R calculates confidence intervals for the inbreeding coefficient estimates.
  
