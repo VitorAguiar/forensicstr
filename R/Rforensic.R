@@ -186,12 +186,13 @@ write.table(mat, "table2.csv", sep=",", row.names=FALSE)
 
 pop[pop==999] <- NA
 # missing data plot
-missing <- numeric(nloci)
-names(missing) <- lnames
-for(i in seq_along(missing)) {
+missing <- numeric()
+for(i in seq(2,ncol(pop),2)) {
 	
-	missing[i] <- dim(pop[is.na(pop[,i]) | is.na(pop[,i+1]), ])[1] / dim(pop[,c(i,i+1)])[1]
+	m <- dim(pop[is.na(pop[,i]) | is.na(pop[,i+1]), ])[1] / dim(pop[,c(i,i+1)])[1]
+	missing <- c(missing, m)
 }
+names(missing) <- lnames
 
 # Saving the plot as .png with 1200 dpi of resolution to the working directory
 png("figure1.png", width=3.25, height=3.25, units="in", res=1200, pointsize=6, family="Arial")
