@@ -20,7 +20,7 @@ Table 1 contains:
 
 Table 2:
 
-table of complete and partial adventitious matches made by the DNAtools package. If you run this part, the program can take several minutes to finish, depending on the amount of individuals in the dataset.
+table of complete and partial adventitious matches as computed by the DNAtools R package. If you run this part of the code, the program can take several minutes to finish, depending on the amount of individuals in the dataset.
 
 Histogram:
 Percentages of missing data across loci.
