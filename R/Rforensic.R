@@ -142,9 +142,6 @@ for(L in seq(2, ncol(pop), 2)) {
 	denom2 <- numer1
 	
 	vecf[L] <- ( sum(numer1) + sum(numer2)/(2*n) )/( sum(denom1) - sum(denom2)/(2*n) )
-	
-	#Go to next locus
-	L <- L+1
 }
 
 # Naming vectors and list with the loci names
