@@ -1,7 +1,3 @@
-if(!"compiler"%in%rownames(installed.packages())) {install.packages("compiler", repos="http://cran.rstudio.com/")}
-library(compiler)
-enableJIT(3)
-
 if(!"DNAtools"%in%rownames(installed.packages())) {install.packages("DNAtools", repos="http://cran.rstudio.com/")}
 library(DNAtools)
 
