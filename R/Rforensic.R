@@ -1,6 +1,4 @@
 if(!"DNAtools"%in%rownames(installed.packages())) {install.packages("DNAtools", repos="http://cran.rstudio.com/")}
-library(DNAtools)
-
 
 # ObsMat and ObsGen are functions to create a list of matrices of genotype frequencies at each locus 
 ObsMat <- function(grp, dat) {
@@ -175,6 +173,7 @@ pop[is.na(pop)] <- 999
 
 # DNAtools analysis of match
 # threads=0 can be used on linux and mac only.
+require(DNAtools)
 res <- dbCompare(pop, hit=12, threads=0, trace=FALSE)
 
 # Save the results
