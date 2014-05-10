@@ -26,4 +26,6 @@ Histogram:
 Percentages of missing data across loci.
 
 ##### fconfint.R calculates confidence intervals for the inbreeding coefficient estimates.
+
+##### see paper: http://dx.doi.org/10.1016/j.fsigen.2014.04.015
  
