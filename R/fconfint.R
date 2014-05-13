@@ -1,9 +1,5 @@
 # This script calculates confidence intervals for the inbreeding coefficient
 
-if(!"compiler"%in%rownames(installed.packages())) {install.packages("compiler", repos="http://cran.rstudio.com/")}
-library(compiler)
-enableJIT(3)
-
 # ObsMat and ObsGen are functions to create a list of matrices of genotype frequencies at each locus 
 ObsMat <- function(grp, dat) {
 	cols <- grep(grp, names(dat))
