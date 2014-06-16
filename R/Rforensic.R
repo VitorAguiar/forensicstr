@@ -1,5 +1,4 @@
-repo = getOption("repos")
-if(!"DNAtools"%in%rownames(installed.packages())) {install.packages("DNAtools", repos=repo)}
+if(!"DNAtools"%in%rownames(installed.packages())) {install.packages("DNAtools", repos="http://cran.rstudio.com/")}
 
 # ObsMat and ObsGen are functions to create a list of matrices of genotype frequencies at each locus 
 ObsMat <- function(grp, dat) {
