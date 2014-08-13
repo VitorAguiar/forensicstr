@@ -23,7 +23,8 @@ ObsGen = function(dat,Names) {
 }
 
 # Function to apply a threshold of minimum allele frequency
-# Alleles with frequency below count of 5 or a certain percentage are turned into '-5'
+# Alleles with frequency below count of 5 or a certain percentage
+## are turned into '-5'
 ## which is a code for missing data that is turned into NA afterwards
 popMAF = function(dat) {
 	datx = as.matrix(dat)
@@ -68,8 +69,11 @@ Obs.list = ObsGen(popMAFdf,lnames)
 # vecpE: Power of Exclusion
 # vecTPI: Typical Paternity Index
 # vecPIC: Polymorphic Information Content
-# vecf: The Moment estimate of Single Inbreeding coefficient for a locus with more than 2 alleles (Weir's book Data Analysis II page 79)
-nind = vech = vech.exp = vecpM = vecpD = vecpE = vecTPI = vecPIC = vecf = numeric(nloci)
+# vecf: The Moment estimate of Single Inbreeding coefficient for a locus 
+##with more than 2 alleles (Weir's book Data Analysis II page 79)
+nind = vech = vech.exp = vecpM = vecpD = vecpE = 
+    vecTPI = vecPIC = vecf = numeric(nloci)
+
 #dfall: list of data frames with alleles frequencies at each locus
 dfall = vector('list',nloci)
 
@@ -95,7 +99,8 @@ while(L <= nloci) {
 	alleles = c(complete[,1],complete[,2])
 	alFreq = table(alleles)/length(alleles)
 	
-	aldf = data.frame(as.numeric(names(alFreq)),round(array(alFreq),digits=6))
+	aldf = data.frame(as.numeric(names(alFreq)),
+			  round(array(alFreq),digits=6))
 	dfall[[L]] = aldf
 	
 	# Observed Homozygosity
@@ -179,7 +184,8 @@ pop = data.frame(id=rownames(pop),pop)
 rownames(pop) = NULL
 
 # Newer version of DNAtools doesn't accept missing values.
-# Code the missing alleles by e.g. 999 or another numeric value not in the set of alleles
+# Code the missing alleles by e.g. 999 
+##or another numeric value not in the set of alleles
 pop[is.na(pop)] = 999
 
 # DNAtools analysis of match
@@ -204,8 +210,12 @@ for(i in seq(2,ncol(pop),2)) {
 }
 names(missing) = lnames
 
-# Saving the plot as .png with 1200 dpi of resolution to the working directory
-png('figure1.png',width=3.25,height=3.25,units='in', res=1200, pointsize=6, family='Arial')
+# Saving the plot as .png with 1200 dpi of resolution to the 
+##working directory
+png('figure1.png',width=3.25,height=3.25,units='in',
+    res=1200,pointsize=6,family='Arial')
 par(mar = c(7,4,2,1))
-barplot(missing*100, space=.1, ylim=c(0,100), axisnames=TRUE, col='grey20', cex.names=1.2, las=2, names.arg=names(missing), border=NA, axis.lty='solid', ylab='missing data percentage (%)')
+barplot(missing*100,space=.1,ylim=c(0,100),axisnames=TRUE,col='grey20',
+	cex.names=1.2,las=2,names.arg=names(missing),border=NA,
+	axis.lty='solid',ylab='missing data percentage (%)')
 dev.off()
