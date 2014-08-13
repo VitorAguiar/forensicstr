@@ -1,6 +1,7 @@
 # This script calculates confidence intervals for the inbreeding coefficient
 
-# ObsMat and ObsGen are functions to create a list of matrices of genotype frequencies at each locus 
+# ObsMat and ObsGen are functions to create a list of matrices
+##of genotype frequencies at each locus 
 ObsMat = function(grp,dat) {
 	cols = grep(grp,names(dat))
 	Names = levels(factor(c(dat[,cols[1]],dat[,cols[2]])))
@@ -36,7 +37,8 @@ popMAF = function(dat) {
 	return(datx)
 }
 
-# function calculates the moment estimator of the single inbreeding coefficient for a locus
+# function calculates the moment estimator of the
+##single inbreeding coefficient for a locus
 finbred = function(matobs) {
 	n = sum(matobs)
 	numer1 = numer2 = denom1 = numeric()
