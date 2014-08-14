@@ -24,7 +24,7 @@ ObsGen = function(dat,Names) {
 popMAF = function(dat) {
 	datx = as.matrix(dat)
 
-	for (i in seq(1,ncol(datx),2)) {
+	for(i in seq(1,ncol(datx),2)) {
 		allcount = table(datx[,i:(i+1)])
 		ac = allcount[as.numeric(names(allcount))>0]
 		# Threshold = 0.01%:
