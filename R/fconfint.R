@@ -67,7 +67,7 @@ boot = function(dat,nreps=10000) {
 	N = dim(dat)[1]
 	vecFboot = numeric(nreps)
 	
-	for (i in 1:nreps) {
+	for(i in 1:nreps) {
 		vec = 1:N
 		use = sample(vec,replace=TRUE)
 		
