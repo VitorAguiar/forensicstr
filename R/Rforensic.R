@@ -159,7 +159,7 @@ while(L <= nloci) {
 names(nind) = names(vech) = names(vech.exp) = names(vecpM) = names(vecpD) = 
     names(vecpE) = names(vecTPI) = names(vecPIC) = names(vecf) = lnames
 
-######## Table 1 #####################################################
+######## TABLE 1 #####################################################
 # Creating the allele frequency tablE
 for (i in seq_along(dfall)) names(dfall[[i]]) = c('alleles',paste0('freq.',i))
 alfreqdf = Reduce(function(x,y) merge(x,y,by='alleles',all=TRUE),dfall)
