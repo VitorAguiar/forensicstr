@@ -159,8 +159,8 @@ while(L <= nloci) {
 names(nind) = names(vech) = names(vech.exp) = names(vecpM) = names(vecpD) = 
     names(vecpE) = names(vecTPI) = names(vecPIC) = names(vecf) = lnames
 
-# Creating the allele frequency table
-# Table 1
+######## Table 1 #####################################################
+# Creating the allele frequency tablE
 for (i in seq_along(dfall)) names(dfall[[i]]) = c('alleles',paste0('freq.',i))
 alfreqdf = Reduce(function(x,y) merge(x,y,by='alleles',all=TRUE),dfall)
 names(alfreqdf) = c('alleles',lnames)
@@ -179,27 +179,7 @@ tab1 = rbind(alfreqdf,pars)
 # Saving the table to the working directory
 write.table(tab1,'table1_1.csv',sep=',',quote=FALSE,row.names=FALSE)
 
-# Formating the data frame to DNAtools format
-pop = data.frame(id=rownames(pop),pop)
-rownames(pop) = NULL
-
-# Newer version of DNAtools doesn't accept missing values.
-# Code the missing alleles by e.g. 999 
-##or another numeric value not in the set of alleles
-pop[is.na(pop)] = 999
-
-# DNAtools analysis of match
-# threads=0 can be used on linux and mac only.
-require(DNAtools)
-res = dbCompare(pop,hit=12,threads=0,trace=FALSE)
-
-# Save the results
-mat = as.data.frame(res$m)
-mat = data.frame('partial/match'=rownames(mat),mat)
-colnames(mat) = c('match/partial',0:nloci)
-write.table(mat,'table2.csv',sep=',',row.names=FALSE)
-
-pop[pop==999] = NA
+######## FIGURE 1 #####################################################
 # missing data plot
 missing = numeric()
 for(i in seq(2,ncol(pop),2)) {
@@ -219,3 +199,24 @@ barplot(missing*100,space=.1,ylim=c(0,100),axisnames=TRUE,col='grey20',
 	cex.names=1.2,las=2,names.arg=names(missing),border=NA,
 	axis.lty='solid',ylab='missing data percentage (%)')
 dev.off()
+
+######## TABLE 2 #####################################################
+# Formating the data frame to DNAtools format
+pop = data.frame(id=rownames(pop),pop)
+rownames(pop) = NULL
+
+# Newer version of DNAtools doesn't accept missing values.
+# Code the missing alleles by e.g. 999 
+##or another numeric value not in the set of alleles
+pop[is.na(pop)] = 999
+
+# DNAtools analysis of match
+# threads=0 can be used on linux and mac only.
+require(DNAtools)
+res = dbCompare(pop,hit=12,threads=0,trace=FALSE)
+
+# Save the results
+mat = as.data.frame(res$m)
+mat = data.frame('partial/match'=rownames(mat),mat)
+colnames(mat) = c('match/partial',0:nloci)
+write.table(mat,'table2.csv',sep=',',row.names=FALSE)
