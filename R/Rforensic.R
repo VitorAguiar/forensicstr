@@ -214,11 +214,6 @@ dev.off()
 pop <- data.frame(id = rownames(pop), pop)
 rownames(pop) <- NULL
 
-# Newer version of DNAtools doesn't accept missing values.
-# Code the missing alleles by e.g. 999 
-##or another numeric value not in the set of alleles
-pop[is.na(pop)] <- 999
-
 # DNAtools analysis of match
 # threads=0 can be used on linux and mac only.
 require(DNAtools)
